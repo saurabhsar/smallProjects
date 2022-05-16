@@ -20,7 +20,7 @@ def toM(dist):
 
 url = 'https://www.sportstimingsolutions.in/resultstable1.php?eventId=67028&bibno=%s&eventname=TCS+World+10K+Bengaluru+2022'
 
-bibs = ["7828", "7059", "852","19325","1470","7605","1641","852","8388","26056","12758"]
+bibs = ["7828", "7059", "852","19325","1470","7605","1641","852","8388","26056","12758","7901"]
 #bibs = ["7828"]
 xpoints = [0,3,4.6,5.9,7,7.9,8.4,9,10]
 for bib in bibs:
