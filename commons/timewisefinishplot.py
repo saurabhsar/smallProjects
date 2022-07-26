@@ -1,8 +1,14 @@
 import matplotlib.pyplot as plt
 import numpy as np
 
-timeArr = []
-countArr = []
+timeArr50 = []
+countArr50 = []
+
+timeArr60 = []
+countArr60 = []
+
+timeArr60p = []
+countArr60p = []
 
 
 def prepare(timeToFinishCount):
@@ -12,13 +18,29 @@ def prepare(timeToFinishCount):
     plt.ylabel('Athelete count')
 
     for time in sorted(timeToFinishCount.keys()):
-        timeArr.append(time)
-        countArr.append(timeToFinishCount[time])
-
+        if time < 50:
+            timeArr50.append(time)
+            countArr50.append(timeToFinishCount[time])
+        elif time < 60 :
+            timeArr60.append(time)
+            countArr60.append(timeToFinishCount[time])
+        else:
+            timeArr60p.append(time)
+            countArr60p.append(timeToFinishCount[time])
 
 def plotFinishTime(timeToFinishCount):
     prepare(timeToFinishCount)
-    plt.plot(timeArr, countArr)
-    plt.xticks(np.arange(30, 150, step=5), rotation='vertical')
+    plt.plot(timeArr50, countArr50)
+    plt.xticks(np.arange(30, 50, step=1), rotation='vertical')
+    plt.yticks(np.arange(1, 100, step=2))
+    plt.show()
+
+    plt.plot(timeArr60, countArr60)
+    plt.xticks(np.arange(50, 60, step=1), rotation='vertical')
+    plt.yticks(np.arange(1, 100, step=2))
+    plt.show()
+
+    plt.plot(timeArr60p, countArr60p)
+    plt.xticks(np.arange(60, 150, step=3), rotation='vertical')
     plt.yticks(np.arange(1, 100, step=3))
     plt.show()

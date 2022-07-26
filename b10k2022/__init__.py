@@ -29,7 +29,7 @@ def toM(dist):
 plt.grid(True)
 
 plt.xlabel('splitDistance')
-plt.ylabel('speed m/s')
+plt.ylabel('speed km/h')
 
 speed = []
 splits = []
@@ -51,16 +51,14 @@ for athelete in timingData:
     xAxis = []
     yAxis = []
 
-    xAxis.append(0)
-    yAxis.append(0)
 
     for lap in athelete['laps']:
         d = datetime.strptime(lap['splitDistance'], "%H:%M:%S")
-        yAxis.append(float(lap['splitName'][:-3]) * 1000 / toSec(d))
+        yAxis.append(float(lap['splitName'][:-3]) * 3600 / toSec(d))
         xAxis.append(lap['splitName'][:-3])
 
     xAxis.append(athelete['distance'])
-    yAxis.append((athelete['distance'] * 1000 / athelete['chiptime'])*1)
+    yAxis.append((athelete['distance'] * 3600 / athelete['chiptime'])*1)
     splits = xAxis
 
     speed.append(yAxis)
